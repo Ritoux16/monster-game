@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boss battle</title>
+</head>
+<body>
+    <img src="../static/monstre.png" alt="monstre a terrasser">
+    <p>player hp: {{player_hp}} / {{max_player_hp}}</p>
+    <p>boss hp: {{boss_hp}} / {{max_boss_hp}}</p>
+    <p>Battle state: {{battle_state}} </p>
+    <form action="/boss/attack" method="post">
+       <button type="submit">attack</button>
+    </form>
+    <form action="/boss/heal" method="post">
+        <button type="submit">heal</button>
+     </form>
+     {% if battle_state != "Battling" %}
+     <form action="/boss/" method="get">
+        <button type="submit">Reset</button>
+     </form>
+     {%endif%}
+</body>
+</html>
